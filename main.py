@@ -143,6 +143,19 @@ def try_detect_language(text: str) -> Dict[str, Any]:
 
 
 # --------------- FastAPI endpoints ---------------
+@app.get("/")
+def root():
+    return {
+        "name": "Text Cleaner API",
+        "version": "1.2.0",
+        "description": "Advanced text cleaning, normalization and preprocessing API.",
+        "docs": "/docs",
+        "health": "/health",
+        "endpoints": {
+            "clean_get": "/clean",
+            "clean_post": "/clean"
+        }
+    }
 
 @app.get("/health")
 def health():
